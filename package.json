@@ -7,8 +7,7 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd client && npm i && npm run build",
-    "prettier": "npx prettier --write .",
-    "prepare": "husky install"
+    "prettier": "npx prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -19,14 +18,8 @@
   "devDependencies": {
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.2.0",
-    "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "2.2.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "lint-staged": {
     "*.js": "eslint --cache --fix",
