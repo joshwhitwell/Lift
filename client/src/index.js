@@ -1,20 +1,21 @@
 //modules
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 
 //components
 import App from "./App";
 
 //utils
-import reportWebVitals from "./reportWebVitals";
+import reportWebVitals from "./utils/reportWebVitals";
+
+//styles
+import "./styles/reset.css";
+import "./styles/index.css";
 
 //Render App
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
