@@ -1,13 +1,14 @@
-import React from "react";
+//modules
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase/app";
+
+//configs
 import { uiConfig } from "../configs/firebaseConfig";
 
+//SignIn
 function SignIn() {
   return (
-    <div className="App">
-      <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
-    </div>
+    <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
   );
 }
 
