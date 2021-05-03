@@ -1,6 +1,6 @@
 //modules
 const express = require("express");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const path = require("path");
 const admin = require("firebase-admin");
 
@@ -17,7 +17,7 @@ admin.initializeApp({
 
 //global middleware
 server.use(express.json());
-server.use(helmet());
+// server.use(helmet());
 server.use(express.static(path.join(__dirname, "client/build")));
 
 //endpoints
