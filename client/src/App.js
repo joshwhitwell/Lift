@@ -1,9 +1,8 @@
 //modules
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //components
-import SignIn from "./components/SignIn";
 import Dashboard from "./components/Dashboard";
 
 //configs
@@ -12,6 +11,9 @@ import { UserContext } from "./contexts/UserContext";
 
 //styles
 import "./styles/App.css";
+import PublicHomePage from "./components/PublicHomePage";
+import NotFoundPage from "./components/NotFoundPage";
+import PrivateRoute from "./components/PrivateRoute";
 
 //App
 function App() {
@@ -26,9 +28,15 @@ function App() {
     <Router>
       <UserContext.Provider value={user}>
         <div className="App">
-          <Route exact path="/">
-            {user ? <Dashboard /> : <SignIn />}
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <PublicHomePage />
+            </Route>
+            <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            <Route path="*">
+              <NotFoundPage />
+            </Route>
+          </Switch>
         </div>
       </UserContext.Provider>
     </Router>
