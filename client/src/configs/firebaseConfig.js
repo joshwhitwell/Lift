@@ -41,8 +41,15 @@ function AuthStateChange(setUser) {
 //firebase ui config
 const uiConfig = {
   signInFlow: "popup",
+  signInSuccessUrl: "/?newuser=true",
   callbacks: {
-    signInSuccessWithAuthResult: () => false,
+    signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+      const { isNewUser } = authResult.additionalUserInfo;
+      if (isNewUser) {
+        return true;
+      }
+      return true;
+    },
   },
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,

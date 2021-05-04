@@ -1,6 +1,6 @@
 //modules
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 //components
 import SignedOutView from "./components/SignedOutView";
@@ -25,21 +25,19 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <UserContext.Provider value={user}>
-        <div className="App">
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              {user ? <SignedInView /> : <SignedOutView />}
-            </Route>
-            <Route path="*">
-              <NotFoundPage />
-            </Route>
-          </Switch>
-        </div>
-      </UserContext.Provider>
-    </Router>
+    <UserContext.Provider value={user}>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            {user ? <SignedInView /> : <SignedOutView />}
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </div>
+    </UserContext.Provider>
   );
 }
 

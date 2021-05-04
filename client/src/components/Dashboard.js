@@ -1,17 +1,12 @@
 //modules
-import { useContext } from "react";
-import firebase from "firebase/app";
 
-//contexts
-import { UserContext } from "../contexts/UserContext";
+import firebase from "firebase/app";
 
 //styles
 import "../styles/Dashboard.css";
 
 //Dashboard
-function Dashboard() {
-  const user = useContext(UserContext);
-
+function Dashboard({ user }) {
   const handleSignOut = () => {
     firebase.auth().signOut();
   };
