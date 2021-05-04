@@ -32,10 +32,8 @@ function AuthStateChange(setUser) {
   return firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       setUser(user);
-      window.localStorage.setItem("loggedIn", "true");
     } else {
       setUser(null);
-      window.localStorage.removeItem("loggedIn");
     }
   });
 }
