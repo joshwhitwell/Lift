@@ -5,7 +5,7 @@ const path = require("path");
 const admin = require("firebase-admin");
 
 //configs
-const serviceAccount = require(process.env.GOOGLE_APPLICATION_CREDENTIALS);
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 //initialize server
 const server = express();
