@@ -6,10 +6,10 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-      directory: "./migrations",
+      directory: "./database/migrations",
     },
     seeds: {
-      directory: "./seeds",
+      directory: "./database/seeds",
     },
     pool: {
       afterCreate: (conn, done) => {
@@ -21,10 +21,10 @@ module.exports = {
     client: "pg",
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: "./migrations",
+      directory: "./database/migrations",
     },
     seeds: {
-      directory: "./seeds",
+      directory: "./database/seeds",
     },
   },
 };
