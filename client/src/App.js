@@ -10,6 +10,8 @@ import Header from "./components/Header";
 
 //configs
 import { AuthStateChange } from "./configs/firebaseConfig";
+
+//contexts
 import { UserContext } from "./contexts/UserContext";
 
 //styles
@@ -30,7 +32,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/">
-            {user ? <SignedInView /> : <SignedOutView />}
+            {user ? <SignedInView /> : <SignedOutView setUser={setUser} />}
           </Route>
           <Route path="*">
             <NotFoundPage />

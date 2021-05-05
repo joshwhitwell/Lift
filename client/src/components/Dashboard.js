@@ -1,5 +1,4 @@
 //modules
-
 import firebase from "firebase/app";
 
 //styles

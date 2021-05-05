@@ -2,10 +2,10 @@
 import SignIn from "./SignIn";
 
 //SignedOutView
-function SignedOutView() {
+function SignedOutView({ setUser }) {
   return (
     <div className="SignedOutView">
-      <SignIn />
+      <SignIn setUser={setUser} />
     </div>
   );
 }
