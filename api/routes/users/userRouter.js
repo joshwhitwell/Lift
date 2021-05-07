@@ -15,10 +15,12 @@ router.get("/", async (_req, res, next) => {
 
 //[POST] /
 router.post("/", async (req, res, next) => {
+  console.log("post user / hit");
   const { uid, name } = req.decoded;
   try {
-    const { data } = await Users.add({ user_id: uid, user_name: name });
-    res.status(200).json({ data });
+    const result = await Users.add({ user_id: uid, user_name: name });
+    console.log("post user / result", result);
+    res.status(200).json(result);
   } catch (err) {
     next(err);
   }
