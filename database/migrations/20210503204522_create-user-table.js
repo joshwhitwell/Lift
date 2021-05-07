@@ -1,7 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("users", (tbl) => {
-    tbl.increments("user_id");
-    tbl.string("user_name", 128).notNullable().unique();
+    tbl.string("user_id").primary().unique().notNullable();
+    tbl.string("user_name", 128);
     tbl.date("user_date_of_birth");
     tbl.string("user_gender", 128);
     tbl.decimal("user_height");
