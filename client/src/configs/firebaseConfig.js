@@ -29,13 +29,25 @@ firebase.initializeApp(firebaseConfig);
 
 //subscribes to firebase auth state changes in App
 function AuthStateChange(setUser) {
-  return firebase.auth().onAuthStateChanged((user) => {
+  return firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
-      setUser(user);
-      window.localStorage.setItem("loggedIn", "true");
+      const accessToken = await user.getIdToken();
+      setUser((state) => {
+        return {
+          displayName: user.displayName,
+          email: user.email,
+          accessToken,
+          emailVerified: user.emailVerified,
+          isAnonymous: user.isAnonymous,
+          metadata: user.metadata,
+          phoneNumber: user.phoneNumber,
+          photoUrl: user.photoURL,
+          refreshToken: user.refreshToken,
+          ...state,
+        };
+      });
     } else {
       setUser(null);
-      window.localStorage.removeItem("loggedIn");
     }
   });
 }
@@ -43,9 +55,6 @@ function AuthStateChange(setUser) {
 //firebase ui config
 const uiConfig = {
   signInFlow: "popup",
-  callbacks: {
-    signInSuccessWithAuthResult: () => false,
-  },
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
