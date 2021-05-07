@@ -2,6 +2,9 @@
 const express = require("express");
 const path = require("path");
 const admin = require("firebase-admin");
+const cors = require("cors");
+
+//routers
 const apiRouter = require("./api/apiRouter");
 
 //configs
@@ -17,19 +20,20 @@ admin.initializeApp({
 
 //global middleware
 server.use(express.json());
+server.use(cors());
 server.use(express.static(path.join(__dirname, "client/build")));
 
-//routers
+//routes
 server.use("/api", apiRouter);
 
 //endpoints
 //[GET] *
-server.get("*", (req, res) => {
+server.get("*", (_req, res) => {
   res.sendFile(path.join(__dirname, "client/build", "index.html"));
 });
 
 //global error handler
-server.use((err, req, res, _next) => {
+server.use((err, _req, res, _next) => {
   res.status(500).json({ err });
 });
 

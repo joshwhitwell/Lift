@@ -2,14 +2,20 @@
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase/app";
 
+//utils
+import axiosWithAuth from "../api/axios";
+
 //configs
 import { uiConfig } from "../configs/firebaseConfig";
 
 //SignIn
-function SignIn({ setUser }) {
-  const signInSuccessWithAuthResult = (authResult, redirectUrl) => {
+function SignIn() {
+  const signInSuccessWithAuthResult = async (authResult, _redirectUrl) => {
     const { isNewUser } = authResult.additionalUserInfo;
-    setUser({ isNewUser });
+    if (isNewUser) {
+      const token = await authResult.user.getIdToken();
+      await axiosWithAuth(token).post("/users");
+    }
     return false;
   };
 

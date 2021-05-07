@@ -1,12 +1,16 @@
 //modules
 const router = require("express").Router();
-const { authenticateUser } = require("./middleware/index");
+
+//middleware
+const { authenticateUser } = require("./middleware/middleware");
+
+//routers
 const userRouter = require("./routes/users/userRouter");
 
 //global middleware
 router.all("*", authenticateUser);
 
-//routers
+//routes
 router.use("/users", userRouter);
 
 //endpoints
