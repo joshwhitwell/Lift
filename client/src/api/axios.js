@@ -2,12 +2,12 @@
 import axios from "axios";
 
 //env variables
-// const BASE_URL = process.env.REACT_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 //axiosWithAuth
 const axiosWithAuth = (token) => {
   return axios.create({
-    baseURL: "https://liftworkoutapp.herokuapp.com/api",
+    baseURL: BASE_URL,
     headers: { authorization: token },
   });
 };
