@@ -28,7 +28,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //subscribes to firebase auth state changes in App
-function AuthStateChange(setUser) {
+function AuthStateChange(setUser, setLoading) {
   return firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
       const accessToken = await user.getIdToken();
@@ -46,8 +46,10 @@ function AuthStateChange(setUser) {
           ...state,
         };
       });
+      setLoading(false);
     } else {
       setUser(null);
+      setLoading(false);
     }
   });
 }

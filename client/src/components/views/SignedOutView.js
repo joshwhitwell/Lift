@@ -1,5 +1,5 @@
 //components
-import SignIn from "./SignIn";
+import SignIn from "../pages/SignIn";
 
 //SignedOutView
 function SignedOutView({ setUser }) {

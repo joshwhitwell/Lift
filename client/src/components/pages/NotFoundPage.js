@@ -1,6 +1,7 @@
+//modules
 import { useLocation } from "react-router";
 
-//404
+//NotFoundPage
 function NotFoundPage() {
   let location = useLocation();
   return (
