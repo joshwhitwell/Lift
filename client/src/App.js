@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import SignedOutView from "./components/views/SignedOutView";
 import SignedInView from "./components/views/SignedInView";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 import LoadingSpinner from "./components/views/LoadingSpinner";
 
 //configs
@@ -14,7 +15,7 @@ import { AuthStateChange } from "./configs/firebaseConfig";
 import { UserContext } from "./contexts/UserContext";
 
 //styles
-import "./styles/App.css";
+import "./styles/App.scss";
 
 //App
 function App() {
@@ -28,10 +29,15 @@ function App() {
 
   const renderViewMode = () => {
     return (
-      <>
-        {user && <SignedInView />}
-        {!user && <SignedOutView setUser={setUser} />}
-      </>
+      <div className="Main">
+        {loading ? (
+          <LoadingSpinner />
+        ) : user ? (
+          <SignedInView />
+        ) : (
+          <SignedOutView setUser={setUser} />
+        )}
+      </div>
     );
   };
 
@@ -39,7 +45,8 @@ function App() {
     <UserContext.Provider value={user}>
       <div className="App">
         <Header />
-        {loading ? <LoadingSpinner /> : renderViewMode()}
+        {renderViewMode()}
+        <Footer />
       </div>
     </UserContext.Provider>
   );

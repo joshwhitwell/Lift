@@ -1,0 +1,22 @@
+@import "./variables.scss";
+
+.Profile {
+    align-self: start;
+    justify-self: stretch;
+    &__photo {
+        border-radius: 50%;
+        margin: 10% auto;
+        display: block;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        padding: 5%;
+        background-color: $container-background-light;
+        border-top: 1px solid $container-border-light;
+        border-radius: 1px solid $container-border-light;
+        &__text__editable {
+            color: $text-blue;
+        }
+    }
+}

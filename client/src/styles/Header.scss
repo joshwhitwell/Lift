@@ -1,0 +1,9 @@
+@import "./variables.scss";
+
+.Header {
+  grid-area: header;
+  text-align: center;
+  background-color: $container-background-dark;
+  padding: 15px;
+  border-bottom: 1px solid $container-border-dark;
+}

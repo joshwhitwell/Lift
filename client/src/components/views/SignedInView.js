@@ -7,7 +7,6 @@ import { UserContext } from "../../contexts/UserContext";
 
 //components
 import Dashboard from "../pages/Dashboard";
-import Footer from "../layout/Footer";
 import Profile from "../pages/Profile";
 import NotFoundPage from "../pages/NotFoundPage";
 
@@ -15,20 +14,19 @@ import NotFoundPage from "../pages/NotFoundPage";
 function SignedInView() {
   const user = useContext(UserContext);
   return (
-    <div className="SignedInView">
+    <>
       <Switch>
-        <Route path={"/profile"}>
-          <Profile user={user} />
-        </Route>
-        <Route path={"/dashboard"}>
+        <Route exact path="/">
           <Dashboard user={user} />
+        </Route>
+        <Route path="/profile">
+          <Profile user={user} />
         </Route>
         <Route>
           <NotFoundPage />
         </Route>
       </Switch>
-      <Footer />
-    </div>
+    </>
   );
 }
 

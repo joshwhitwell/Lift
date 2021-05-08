@@ -2,7 +2,7 @@
 import firebase from "firebase/app";
 
 //styles
-import "../../styles/Dashboard.css";
+import "../../styles/Dashboard.scss";
 
 //Dashboard
 function Dashboard({ user }) {

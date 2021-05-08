@@ -1,5 +1,5 @@
 //styles
-import "../../styles/Header.css";
+import "../../styles/Header.scss";
 
 //Header
 function Header() {
