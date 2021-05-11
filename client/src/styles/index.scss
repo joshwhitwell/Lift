@@ -1,0 +1,30 @@
+@import "./variables.scss";
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: $font-body;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: $font-header;
+  font-size: 2rem;
+}
+
+h1.firebaseui-title {
+  font-family: unset;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+}

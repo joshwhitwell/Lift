@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+.Header {
+  grid-area: header;
+  text-align: center;
+  background-color: $container-background-dark;
+  padding: 15px;
+  border-bottom: 1px solid $container-border-dark;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  &::before {
+    content: "";
+  }
+  svg {
+    justify-self: end;
+  }
+}

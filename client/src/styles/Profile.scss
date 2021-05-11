@@ -1,0 +1,26 @@
+@import "./variables.scss";
+
+.Profile {
+    place-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    &::before, &::after {
+        content: "";
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5%;
+        background-color: $container-background-light;
+        border-bottom: 1px solid $container-border-light;
+        &__photo {
+            width: 50px;
+            border-radius: 50%;
+        }
+        &__text__editable {
+            color: $text-blue;
+        }
+    }
+}
