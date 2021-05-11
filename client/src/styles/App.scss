@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.App {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "header" "main" "footer";
+    background-color: $app-background;
+    color: $text-gray-dark;
+    .Main {
+        grid-area: main;
+        place-self: stretch;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        place-items: center;
+        overflow: auto;
+    }
+}
+  

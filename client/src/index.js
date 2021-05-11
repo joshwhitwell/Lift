@@ -10,8 +10,8 @@ import App from "./App";
 import reportWebVitals from "./utils/reportWebVitals";
 
 //styles
-import "./styles/reset.css";
-import "./styles/index.css";
+import "./styles/reset.scss";
+import "./styles/index.scss";
 
 //Render App
 ReactDOM.render(

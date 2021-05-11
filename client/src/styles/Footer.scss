@@ -1,0 +1,28 @@
+@import "./variables.scss";
+
+.Footer {
+  grid-area: footer;
+  background-color: $container-background-dark;
+  padding: 15px;
+  text-align: center;
+  &__Nav {
+    display: flex;
+    justify-content: space-around;
+    &__NavLink {
+      text-decoration: none;
+      color: lightslategray;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &.active {
+        color: black;
+        border-bottom: 2px solid black;
+      }
+      span {
+        padding: 2.5px 0 5px 0;
+      }
+    }
+  }
+}
+
+

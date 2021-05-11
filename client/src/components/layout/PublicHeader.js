@@ -1,8 +1,8 @@
 //styles
-import "../styles/Header.css";
+import "../../styles/Header.scss";
 
 //Header
-function Header() {
+function PublicHeader() {
   return (
     <header className="Header">
       <h1>Lift</h1>
@@ -10,4 +10,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default PublicHeader;
