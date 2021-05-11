@@ -1,19 +1,14 @@
 //modules
-import firebase from "firebase/app";
+import { ReactComponent as WorkoutImage } from "../../assets/svgs/workout.svg";
 
 //styles
 import "../../styles/Dashboard.scss";
 
 //Dashboard
 function Dashboard({ user }) {
-  const handleSignOut = () => {
-    firebase.auth().signOut();
-  };
-
   return (
     <div className="Dashboard">
-      <p>Welcome {user?.displayName}</p>
-      <button onClick={handleSignOut}>Sign Out</button>
+      <WorkoutImage />
     </div>
   );
 }

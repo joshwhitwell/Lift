@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 //components
 import SignedOutView from "./components/views/SignedOutView";
 import SignedInView from "./components/views/SignedInView";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
 import LoadingSpinner from "./components/views/LoadingSpinner";
 
 //configs
@@ -29,7 +27,7 @@ function App() {
 
   const renderViewMode = () => {
     return (
-      <div className="Main">
+      <>
         {loading ? (
           <LoadingSpinner />
         ) : user ? (
@@ -37,17 +35,13 @@ function App() {
         ) : (
           <SignedOutView setUser={setUser} />
         )}
-      </div>
+      </>
     );
   };
 
   return (
     <UserContext.Provider value={user}>
-      <div className="App">
-        <Header />
-        {renderViewMode()}
-        <Footer />
-      </div>
+      <div className="App">{renderViewMode()}</div>
     </UserContext.Provider>
   );
 }

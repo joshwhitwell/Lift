@@ -10,13 +10,17 @@ import "../../styles/Profile.scss";
 //Profile
 function Profile() {
   const user = useContext(UserContext);
+
   return (
     <div className="Profile">
-      <img
-        src={user.photoUrl}
-        alt={user.displayName}
-        className="Profile__photo"
-      />
+      <div className="Profile__row">
+        <p>Display Photo</p>
+        <img
+          src={user.photoUrl}
+          alt={user.displayName}
+          className="Profile__row__photo"
+        />
+      </div>
       <div className="Profile__row">
         <p>User Name</p>
         <p className="Profile__row__text__editable">{user.displayName}</p>

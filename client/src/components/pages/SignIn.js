@@ -29,10 +29,12 @@ function SignIn() {
   };
 
   return (
-    <StyledFirebaseAuth
-      uiConfig={uiConfigWithHook}
-      firebaseAuth={firebase.auth()}
-    />
+    <div className="Main">
+      <StyledFirebaseAuth
+        uiConfig={uiConfigWithHook}
+        firebaseAuth={firebase.auth()}
+      />
+    </div>
   );
 }
 

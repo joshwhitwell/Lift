@@ -1,6 +1,6 @@
 //modules
 import { useContext } from "react";
-import { Route, Switch } from "react-router";
+import { Route, Switch, useLocation } from "react-router";
 
 //contexts
 import { UserContext } from "../../contexts/UserContext";
@@ -9,23 +9,31 @@ import { UserContext } from "../../contexts/UserContext";
 import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
 import NotFoundPage from "../pages/NotFoundPage";
+import Header from "../layout/PrivateHeader";
+import Footer from "../layout/PrivateFooter";
 
 //SignedInView
 function SignedInView() {
   const user = useContext(UserContext);
+  let location = useLocation();
+
   return (
     <>
-      <Switch>
-        <Route exact path="/">
-          <Dashboard user={user} />
-        </Route>
-        <Route path="/profile">
-          <Profile user={user} />
-        </Route>
-        <Route>
-          <NotFoundPage />
-        </Route>
-      </Switch>
+      <Header location={location} />
+      <div className="Main">
+        <Switch>
+          <Route exact path="/">
+            <Dashboard user={user} />
+          </Route>
+          <Route path="/profile">
+            <Profile user={user} />
+          </Route>
+          <Route>
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </div>
+      <Footer />
     </>
   );
 }

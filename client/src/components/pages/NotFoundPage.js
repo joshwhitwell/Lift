@@ -1,12 +1,14 @@
 //modules
-import { useLocation } from "react-router";
+import { ReactComponent as NotFoundImage } from "../../assets/svgs/404.svg";
+
+//styles
+import "../../styles/NotFoundPage.scss";
 
 //NotFoundPage
 function NotFoundPage() {
-  let location = useLocation();
   return (
     <div className="NotFoundPage">
-      <p>Sorry, we couldn't find {location.pathname}</p>
+      <NotFoundImage />
     </div>
   );
 }

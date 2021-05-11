@@ -1,20 +1,24 @@
 @import "./variables.scss";
 
 .Profile {
-    align-self: start;
-    justify-self: stretch;
-    &__photo {
-        border-radius: 50%;
-        margin: 10% auto;
-        display: block;
+    place-self: stretch;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 1fr);
+    &::before, &::after {
+        content: "";
     }
     &__row {
         display: flex;
         justify-content: space-between;
-        padding: 5%;
+        align-items: center;
+        padding: 0 5%;
         background-color: $container-background-light;
-        border-top: 1px solid $container-border-light;
-        border-radius: 1px solid $container-border-light;
+        border-bottom: 1px solid $container-border-light;
+        &__photo {
+            width: 50px;
+            border-radius: 50%;
+        }
         &__text__editable {
             color: $text-blue;
         }
